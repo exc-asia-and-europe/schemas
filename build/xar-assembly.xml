@@ -1,13 +1,15 @@
-<package xmlns="http://expath.org/ns/pkg" name="${package.name}" abbrev="${project.artifactId}" version="${project.version}"
-	spec="1.0">
+<package xmlns="http://expath.org/ns/pkg" name="${package.name}"
+	abbrev="${project.artifactId}" version="${project.version}" spec="1.0">
 	<title>${package.title}</title>
-	<dependency processor="http://exist-db.org" semver-min="4.4.0" />
+	<dependency processor="http://exist-db.org"
+		semver-min="4.4.0" />
 	<website>${project.url}</website>
 	<license>GNU-LGPL</license>
 	<copyright>true</copyright>
 	<type>${package.type}</type>
 	<target>${project.artifactId}</target>
-	<permissions user="editor" password="editor" group="biblio.users" mode="0444" />
+	<permissions user="editor" password="editor"
+		group="biblio.users" mode="0444" />
 	<status>stable</status>
 	<tag>${project.artifactId}</tag>
 	<tag>${package.type}</tag>
@@ -17,12 +19,19 @@
 	<fileSets>
 		<fileSet>
 			<directory>${project.basedir}</directory>
-			<outputDirectory>/</outputDirectory>
 			<excludes>
 				<exclude>build/</exclude>
 				<exclude>target/</exclude>
 				<exclude>pom.xml</exclude>
+				<exclude>schemas/</exclude>
 			</excludes>
+		</fileSet>
+		<fileSet>
+			<directory>${project.basedir}/schemas</directory>
+			<outputDirectory>/</outputDirectory>
+			<includes>
+				<include>*</include>
+			</includes>
 		</fileSet>
 	</fileSets>
 </package>
